@@ -24,13 +24,12 @@
                         ],
                         "styles": [
                             "src/styles.css",
-                            "src/materialize/css/materialize.css",
-                            "src/bootstrap/css/bootstrap.css"
+                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                            "node_modules/materialize-css/dist/css/materialize.min.css"
                         ],
                         "scripts": [
-                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                            "src/materialize/js/materialize.js",
-                            "src/bootstrap/js/bootstrap.js"
+                            "node_modules/materialize-css/dist/css/materialize.min.css",
+                            "node_modules/bootstrap/dist/js/bootstrap.min.js"
                         ],
                         "es5BrowserSupport": true
                     },
