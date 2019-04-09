@@ -1,0 +1,10 @@
+carouselDeImagenes{
+  display: block;
+  width: 50%;
+  height: 200px;
+}
+
+.icarousel-inner{
+  height: 50px;
+  width: 50%;
+}
