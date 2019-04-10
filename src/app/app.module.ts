@@ -29,6 +29,6 @@ import { FooterComponent } from './footer/footer.component';
     AlertModule.forRoot()
   ],
   providers: [],
-  bootstrap: [PrincipalComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
