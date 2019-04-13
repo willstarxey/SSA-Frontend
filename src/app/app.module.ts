@@ -11,17 +11,21 @@ import { SectionComponent } from './section/section.component';
 import { AsideComponent } from './aside/aside.component';
 import { FooterComponent } from './footer/footer.component';
 import { Routes, RouterModule } from '@angular/router';
-import { HistoriaComponent } from './historia/historia.component';
+import { HistoriaComponent } from './core/historia/historia.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
-import { AtractivosComponent } from './atractivos/atractivos.component';
+import { AtractivosComponent } from './core/atractivos/atractivos.component';
+import { PrincipalComponent } from './core/principal/principal.component';
+import { SomosComponent } from './core/somos/somos.component';
+import { GaleriaComponent } from './core/galeria/galeria.component';
 
 const routes: Routes = [
-  { path: '' , component: AppComponent, children: [
-    { path: 'atractivos', component: AtractivosComponent},
-    { path: 'historia', component: HistoriaComponent}
-    ]},
-  { path: 'not-found', component: NotFoundComponent},
-  { path: '**', redirectTo: 'not-found'}
+  {path: '', component: PrincipalComponent},
+  { path: 'lugares', component: AtractivosComponent},
+  { path: 'historia', component: HistoriaComponent},
+  { path: 'somos', component: SomosComponent},
+  { path: 'galeria', component: GaleriaComponent},
+  { path: '404', component: NotFoundComponent},
+  { path: '**', redirectTo: '404'}
 ];
 
 @NgModule({
@@ -35,7 +39,10 @@ const routes: Routes = [
     FooterComponent,
     HistoriaComponent,
     NotFoundComponent,
-    AtractivosComponent
+    AtractivosComponent,
+    PrincipalComponent,
+    SomosComponent,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,

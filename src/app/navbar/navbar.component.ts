@@ -5,7 +5,7 @@ import { Component, OnInit , OnDestroy} from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit , OnDestroy{
+export class NavbarComponent implements OnInit , OnDestroy {
 
   constructor() { }
 
@@ -16,4 +16,5 @@ export class NavbarComponent implements OnInit , OnDestroy{
   ngOnDestroy() {
 
   }
+
 }
