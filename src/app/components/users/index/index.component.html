@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center align-items-center justify-content-center">
+            <a [routerLink]="['/sistema/users/add']" class="btn btn-danger">Añadir Nuevo Usuario</a>
+        </div>
+        <div class="col-md-12 pt-4">
+            <div class="card text-center">
+                <div class="card-header bg-rojo d-flex justify-content-between align-items-center">
+                    Usuarios de la comunidad registrados
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th width='10px'>ID</th>
+                                <th>Nombre(s)</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users">
+                                <td>{{user.id}}</td>
+                                <td>{{user.nombre}}</td>
+                                <td>{{user.app}}</td>
+                                <td>{{user.apm}}</td>
+                                <td><a [routerLink]="['/sistema/users/edit', user.id]" class="btn btn-info">Editar Usuario</a></td>
+                                <td><a class="btn btn-danger" (click)="deleteUser(user.id)">Eliminar Usuario</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

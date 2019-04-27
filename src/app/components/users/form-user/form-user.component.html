@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" name="nombre" [(ngModel)]="user.nombre" placeholder="Nombre(s)" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="app" [(ngModel)]="user.app" placeholder="Apellido Paterno" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="apm" [(ngModel)]="user.apm" placeholder="Apellido Materno" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="direccion" [(ngModel)]="user.direccion" placeholder="Dirección" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="rol" [(ngModel)]="user.rol" placeholder="Rol" class="form-control" value="Usuario">
+                    </div>
+                    <div class="form-group d-flex justify-content-center">
+                        <button class="btn btn-info" (click)="edit ? updateUser() : saveUser()">Guardar Usuario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

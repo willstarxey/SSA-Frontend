@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center align-items-center justify-content-center">
+            <a [routerLink]="['/sistema/avisos/add']" class="btn btn-danger">Añadir Aviso</a>
+        </div>
+        <div class="col-md-12 pt-4">
+            <div class="card text-center">
+                <div class="card-header bg-rojo d-flex justify-content-between align-items-center">
+                    Avisos Registrados
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th width='10px'>ID</th>
+                                <th>Titulo</th>
+                                <th>Descripción</th>
+                                <th>Fecha de registro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let aviso of avisos">
+                                <td>{{aviso.id}}</td>
+                                <td>{{aviso.titulo}}</td>
+                                <td>{{aviso.descripcion}}</td>
+                                <td>{{aviso.created_at}}</td>
+                                <td><a [routerLink]="['/sistema/avisos/edit', aviso.id]" class="btn btn-info">Editar</a></td>
+                                <td><a class="btn btn-danger" (click)="deleteAviso(aviso.id)">Eliminar</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

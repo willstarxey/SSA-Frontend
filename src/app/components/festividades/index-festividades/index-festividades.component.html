@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center align-items-center justify-content-center">
+            <a [routerLink]="['/sistema/festividades/add']" class="btn btn-danger">Añadir Nueva Festividad</a>
+        </div>
+        <div class="col-md-12 pt-4">
+            <div class="card text-center">
+                <div class="card-header bg-rojo d-flex justify-content-between align-items-center">
+                    Festividades o eventos registrados
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th width='10px'>ID</th>
+                                <th>Titulo</th>
+                                <th>Descripción</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let festividad of festividades">
+                                <td>{{festividad.id}}</td>
+                                <td>{{festividad.titulo}}</td>
+                                <td>{{festividad.descripcion}}</td>
+                                <td>{{festividad.fecha}}</td>
+                                <td><a [routerLink]="['/sistema/festividades/edit', festividad.id]" class="btn btn-info">Editar Festividad</a></td>
+                                <td><a class="btn btn-danger" (click)="deleteFestividad(festividad.id)">Eliminar Festividad</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
