@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FestividadesService } from 'src/app/services/festividades.service';
 import { Festividad } from '../../../models/Festividad';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-index-festividades',
@@ -11,9 +12,13 @@ export class IndexFestividadesComponent implements OnInit {
 
   festividades: Festividad|any = [];
 
-  constructor( private festividadesService: FestividadesService ) { }
+  constructor( private festividadesService: FestividadesService, private spinnerService: NgxSpinnerService ) { }
 
   ngOnInit() {
+    this.spinnerService.show();
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 800);
     this.getFestividades();
   }
 

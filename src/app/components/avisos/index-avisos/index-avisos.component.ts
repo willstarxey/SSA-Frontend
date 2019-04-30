@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AvisosService } from '../../../services/avisos.service';
 import { Aviso } from '../../../models/Aviso';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-index-avisos',
@@ -11,9 +12,13 @@ export class IndexAvisosComponent implements OnInit {
 
   avisos: Aviso|any = [];
 
-  constructor( private avisosService: AvisosService ) { }
+  constructor( private avisosService: AvisosService, private spinnerService: NgxSpinnerService ) { }
 
   ngOnInit() {
+    this.spinnerService.show();
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 800);
     this.getAvisos();
   }
 

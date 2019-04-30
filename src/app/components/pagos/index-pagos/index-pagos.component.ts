@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PagosService } from '../../../services/pagos.service';
 import { Pago } from '../../../models/Pago';
+import { UsersService } from '../../../services/users.service';
+import { User } from 'src/app/models/User';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-index-pagos',
@@ -11,9 +14,13 @@ export class IndexPagosComponent implements OnInit {
 
   pagos: Pago|any = [];
 
-  constructor( private pagosService: PagosService ) { }
+  constructor( private pagosService: PagosService, private usersService: UsersService, private spinnerService: NgxSpinnerService ) { }
 
   ngOnInit() {
+    this.spinnerService.show();
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 800);
     this.getPagos();
   }
 

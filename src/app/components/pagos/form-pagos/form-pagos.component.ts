@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Pago } from '../../../models/Pago';
 import { PagosService } from '../../../services/pagos.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/models/User';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-form-pagos',
@@ -20,15 +22,17 @@ export class FormPagosComponent implements OnInit {
 
   edit = false;
 
-  constructor( private pagosService: PagosService, private activatedRoute: ActivatedRoute, private router: Router ) { }
+  users: User|any = [];
+
+// tslint:disable-next-line: max-line-length
+  constructor( private pagosService: PagosService, private activatedRoute: ActivatedRoute, private router: Router, private usersService: UsersService ) { }
 
   ngOnInit() {
+    this.getList();
     const params = this.activatedRoute.snapshot.params;
-    console.log(params);
     if (params.id) {
       this.pagosService.getPago(params.id).subscribe(
         res => {
-          console.log(res);
           this.pago = res[0];
           this.edit = true;
         },
@@ -40,6 +44,7 @@ export class FormPagosComponent implements OnInit {
   savePago() {
     delete this.pago.id;
     delete this.pago.created_at;
+    console.log(this.pago);
     this.pagosService.postPago(this.pago).subscribe(
       res => {
         console.log(res);
@@ -59,6 +64,19 @@ export class FormPagosComponent implements OnInit {
       err => console.log(err)
     );
     console.log();
+  }
+
+  getList() {
+    this.usersService.getUsersList().subscribe(
+      res => {
+        this.users = res;
+      },
+      err => console.log(err)
+    );
+  }
+
+  hola() {
+    console.log('hola');
   }
 
 }

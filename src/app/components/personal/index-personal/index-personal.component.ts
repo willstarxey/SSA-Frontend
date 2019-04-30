@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../../services/users.service';
 import { User } from 'src/app/models/User';
+import { UsersService } from 'src/app/services/users.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  selector: 'app-index-personal',
+  templateUrl: './index-personal.component.html',
+  styleUrls: ['./index-personal.component.css']
 })
-export class IndexComponent implements OnInit {
+export class IndexPersonalComponent implements OnInit {
 
   users: User | any = [];
 
@@ -25,7 +25,7 @@ export class IndexComponent implements OnInit {
   getUsers() {
     this.usersService.getUsers().subscribe(
       res => {
-        this.users = res[0];
+        this.users = res[1];
       },
       err => console.log(err)
     );
@@ -41,3 +41,4 @@ export class IndexComponent implements OnInit {
     );
   }
 }
+

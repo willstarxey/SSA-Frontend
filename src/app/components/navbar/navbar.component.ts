@@ -1,4 +1,5 @@
-import { Component, OnInit , OnDestroy} from '@angular/core';
+import { Component, OnInit , OnDestroy, SimpleChanges} from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +8,21 @@ import { Component, OnInit , OnDestroy} from '@angular/core';
 })
 export class NavbarComponent implements OnInit , OnDestroy {
 
-  constructor() { }
+  constructor( private authService: AuthService) { }
+
+  isLog = '/sistema/auth';
 
   ngOnInit() {
+    this.onCheckUser();
+  }
 
+  onCheckUser() {
+    if (this.authService.getCurrentUser() == null) {
+      console.log(this.authService.getCurrentUser());
+      this.isLog = '/sistema/auth';
+    } else {
+      this.isLog = '/sistema';
+    }
   }
 
   ngOnDestroy() {

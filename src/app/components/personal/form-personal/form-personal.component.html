@@ -3,7 +3,7 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                <p>Registro de nuevo usuario.</p>
+                <p>Formulario de personal</p>
             </div>
             <div class="card-body">
                 <form>
@@ -21,6 +21,9 @@
                     </div>
                     <div class="form-group">
                         <input type="text" name="rol" [(ngModel)]="user.rol" placeholder="Rol" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="puesto" [(ngModel)]="user.puesto" placeholder="Puesto" class="form-control">
                     </div>
                     <div class="form-group">
                         <input type="text" name="password" [(ngModel)]="user.password" placeholder="Contraseña" class="form-control">

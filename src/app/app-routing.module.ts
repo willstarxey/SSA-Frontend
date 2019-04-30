@@ -18,6 +18,10 @@ import { SomosComponent } from './core/somos/somos.component';
 import { GaleriaComponent } from './core/galeria/galeria.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { SistemaComponent } from './core/sistema/sistema.component';
+import { AuthGuard } from './guards/auth.guard';
+import { UserSystemComponent } from './components/user-system/user-system.component';
+import { IndexPersonalComponent } from './components/personal/index-personal/index-personal.component';
+import { FormPersonalComponent } from './components/personal/form-personal/form-personal.component';
 
 const routes: Routes = [
   // RUTAS PRINCIPALES DEL SITIO WEB
@@ -33,9 +37,14 @@ const routes: Routes = [
   { path: 'sistema', component: SistemaComponent, children: [
     // VENTANA DE INICIO PRINCIPAL DEL SISTEMA
     // RUTAS DEL SISTEMA - USUARIOS
+    { path: 'user', component: UserSystemComponent},
     { path: 'users', component: IndexComponent },
     { path: 'users/add', component: FormUserComponent },
     { path: 'users/edit/:id', component: FormUserComponent},
+    // RUTAS DEL SITEMA - PERSONAL
+    { path: 'personal', component: IndexPersonalComponent },
+    { path: 'personal/add', component: FormPersonalComponent },
+    { path: 'personal/edit/:id', component: FormPersonalComponent},
     // RUTAS DEL SISTEMA - AVISOS
     { path: 'avisos', component: IndexAvisosComponent },
     { path: 'avisos/add', component: FormAvisosComponent },

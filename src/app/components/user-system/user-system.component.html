@@ -1,13 +1,13 @@
-<app-navbar-system></app-navbar-system>
+<hr>
+<div class="container">
+    <h5 class="text-center">Bienvenido al Sistema de Información, aquí podrás ver los pagos que has realizado.</h5>
+</div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12 text-center align-items-center justify-content-center">
-            <a [routerLink]="['/sistema/pagos/add']" class="btn btn-danger">Añadir Nuevo Pago</a>
-        </div>
         <div class="col-md-12 pt-4">
             <div class="card text-center">
                 <div class="card-header bg-rojo d-flex justify-content-between align-items-center">
-                    Pagos Registrados
+                    Tus pagos registrados
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-hover">
@@ -16,7 +16,7 @@
                                 <th width='10px'>ID</th>
                                 <th>Concepto</th>
                                 <th>Cantidad</th>
-                                <th>Pagador</th>
+                                <th>Fecha de Pago</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -24,9 +24,7 @@
                                 <td>{{pago.id}}</td>
                                 <td>{{pago.concepto}}</td>
                                 <td>{{pago.cantidad}}</td>
-                                <td>{{pago.Users_id}}</td>
-                                <td><a [routerLink]="['/sistema/pagos/edit', pago.id]" class="btn btn-info">Editar Pago</a></td>
-                                <td><a class="btn btn-danger" (click)="deletePago(pago.id)">Eliminar Pago</a></td>
+                                <td>{{pago.created_at}}</td>
                             </tr>
                         </tbody>
                     </table>

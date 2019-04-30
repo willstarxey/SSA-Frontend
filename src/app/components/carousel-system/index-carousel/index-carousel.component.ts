@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarouselService } from '../../../services/carousel.service';
 import { Carousel } from '../../../models/Carousel';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-index-carousel',
@@ -11,9 +12,13 @@ export class IndexCarouselComponent implements OnInit {
 
   carousel: Carousel|any = [];
 
-  constructor( private carouselService: CarouselService ) { }
+  constructor( private carouselService: CarouselService, private spinnerService: NgxSpinnerService ) { }
 
   ngOnInit() {
+    this.spinnerService.show();
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 800);
     this.getCarousels();
   }
 

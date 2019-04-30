@@ -31,4 +31,12 @@ export class UsersService {
     return this.http.put(`${this.API_URI}/${id}`, user);
   }
 
+  getPagos(id: number) {
+    return this.http.get(`${this.API_URI}/pagos/${id}`);
+  }
+
+  getUsersList() {
+    return this.http.get(`${this.API_URI}/list`);
+  }
+
 }

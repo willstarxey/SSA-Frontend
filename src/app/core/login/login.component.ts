@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { User } from '../../models/User';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +9,40 @@ import { User } from '../../models/User';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private authService: AuthService, private router: Router ) { }
+  constructor( private authService: AuthService, private router: Router) { }
+
+  public error = false;
+  public eForm = false;
 
   ngOnInit() {
   }
 
   onLogin(form): void {
-    this.authService.login(form.value).subscribe(
-      res => {
-         this.router.navigateByUrl('/sistema');
-      },
-      err => console.log(err)
-    );
+    if (form.valid) {
+      this.eForm = false;
+      this.authService.login(form.value).subscribe(
+        res => {
+          if ( res.userData.rol === 'Usuario') {
+            this.router.navigateByUrl('/sistema/user');
+            this.error = false;
+          } else {
+           this.router.navigateByUrl('/sistema');
+           this.error = false;
+          }
+        },
+        err => {
+          this.error = true;
+          setTimeout (() => {
+            this.error = false;
+          }, 4000);
+        }
+      );
+    } else {
+      this.eForm = true;
+      setTimeout (() => {
+        this.eForm = false;
+      }, 4000);
+      console.log('Formulario no válido');
+    }
   }
-
 }

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
-import { UsersService } from '../../../services/users.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-form-user',
-  templateUrl: './form-user.component.html',
-  styleUrls: ['./form-user.component.css']
+  selector: 'app-form-personal',
+  templateUrl: './form-personal.component.html',
+  styleUrls: ['./form-personal.component.css']
 })
-export class FormUserComponent implements OnInit {
+export class FormPersonalComponent implements OnInit {
 
   user: User = {
     id: 0,
@@ -46,11 +46,10 @@ export class FormUserComponent implements OnInit {
     delete this.user.id;
     delete this.user.created_at;
     delete this.user.fotografia;
-    delete this.user.puesto;
     this.userService.postUser(this.user).subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['/sistema/users']);
+        this.router.navigate(['/sistema/personal']);
       },
       err => console.log(err)
     );
@@ -62,7 +61,7 @@ export class FormUserComponent implements OnInit {
     this.userService.updateUser(this.user.id, this.user).subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['/sistema/users']);
+        this.router.navigate(['/sistema/personal']);
       },
       err => console.log(err)
     );

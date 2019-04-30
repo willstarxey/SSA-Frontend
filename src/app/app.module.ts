@@ -25,6 +25,7 @@ import { AvisosService } from './services/avisos.service';
 import { CarouselService } from './services/carousel.service';
 import { FestividadesService } from './services/festividades.service';
 import { PagosService } from './services/pagos.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { IndexComponent } from './components/users/index/index.component';
 import { NavbarSystemComponent } from './components/navbar-system/navbar-system.component';
@@ -38,6 +39,10 @@ import { IndexCarouselComponent } from './components/carousel-system/index-carou
 import { FormCarouselComponent } from './components/carousel-system/form-carousel/form-carousel.component';
 import { IndexFestividadesComponent } from './components/festividades/index-festividades/index-festividades.component';
 import { FormFestividadesComponent } from './components/festividades/form-festividades/form-festividades.component';
+import { AuthService } from './services/auth.service';
+import { UserSystemComponent } from './components/user-system/user-system.component';
+import { IndexPersonalComponent } from './components/personal/index-personal/index-personal.component';
+import { FormPersonalComponent } from './components/personal/form-personal/form-personal.component';
 
 @NgModule({
   declarations: [
@@ -66,20 +71,25 @@ import { FormFestividadesComponent } from './components/festividades/form-festiv
     IndexCarouselComponent,
     FormCarouselComponent,
     IndexFestividadesComponent,
-    FormFestividadesComponent
+    FormFestividadesComponent,
+    UserSystemComponent,
+    IndexPersonalComponent,
+    FormPersonalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ],
   providers: [
     UsersService,
     AvisosService,
     CarouselService,
     FestividadesService,
-    PagosService
+    PagosService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
