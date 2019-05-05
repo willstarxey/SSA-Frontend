@@ -10,6 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FormFestividadesComponent implements OnInit {
 
+  model: any;
+  fecha: any;
+
   festividad: Festividad = {
     id: 0,
     titulo: '',
@@ -42,7 +45,8 @@ export class FormFestividadesComponent implements OnInit {
     delete this.festividad.id;
     delete this.festividad.created_at;
     delete this.festividad.imagen;
-    delete this.festividad.fecha;
+    this.fecha = new Date(this.model.year, this.model.month, this.model.day).toJSON().slice(0, 19).replace('T', ' ');
+    this.festividad.fecha = this.fecha;
     this.festividadesService.postFestividad(this.festividad).subscribe(
       res => {
         console.log(res);
@@ -55,7 +59,7 @@ export class FormFestividadesComponent implements OnInit {
   updateFestividad() {
     delete this.festividad.created_at;
     delete this.festividad.imagen;
-    delete this.festividad.fecha;
+    this.festividad.fecha = new Date(this.model.year, this.model.month, this.model.day);
     this.festividadesService.updateFestividad(this.festividad.id, this.festividad).subscribe(
       res => {
         console.log(res);

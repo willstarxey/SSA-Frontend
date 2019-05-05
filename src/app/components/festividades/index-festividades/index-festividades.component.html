@@ -24,7 +24,7 @@
                                 <td>{{festividad.id}}</td>
                                 <td>{{festividad.titulo}}</td>
                                 <td>{{festividad.descripcion}}</td>
-                                <td>{{festividad.fecha}}</td>
+                                <td>{{festividad.fecha.toString().slice(8, 10)}}-{{festividad.fecha.toString().slice(5, 7)}}-{{festividad.fecha.toString().slice(0, 4)}}</td>
                                 <td><a [routerLink]="['/sistema/festividades/edit', festividad.id]" class="btn btn-info">Editar Festividad</a></td>
                                 <td><a class="btn btn-danger" (click)="deleteFestividad(festividad.id)">Eliminar Festividad</a></td>
                             </tr>

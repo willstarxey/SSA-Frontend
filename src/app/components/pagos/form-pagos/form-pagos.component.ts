@@ -47,7 +47,6 @@ export class FormPagosComponent implements OnInit {
     console.log(this.pago);
     this.pagosService.postPago(this.pago).subscribe(
       res => {
-        console.log(res);
         this.router.navigate(['/sistema/pagos']);
       },
       err => console.log(err)
@@ -58,7 +57,6 @@ export class FormPagosComponent implements OnInit {
     delete this.pago.created_at;
     this.pagosService.updatePago(this.pago.id, this.pago).subscribe(
       res => {
-        console.log(res);
         this.router.navigate(['/sistema/pagos']);
       },
       err => console.log(err)
@@ -74,9 +72,4 @@ export class FormPagosComponent implements OnInit {
       err => console.log(err)
     );
   }
-
-  hola() {
-    console.log('hola');
-  }
-
 }

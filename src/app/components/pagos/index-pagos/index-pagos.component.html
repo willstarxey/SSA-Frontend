@@ -17,6 +17,7 @@
                                 <th>Concepto</th>
                                 <th>Cantidad</th>
                                 <th>Pagador</th>
+                                <th>Fecha del pago</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,6 +26,7 @@
                                 <td>{{pago.concepto}}</td>
                                 <td>{{pago.cantidad}}</td>
                                 <td>{{pago.Users_id}}</td>
+                                <td>{{pago.created_at.toString().slice(8, 10)}}-{{pago.created_at.toString().slice(5, 7)}}-{{pago.created_at.toString().slice(0, 4)}}</td>
                                 <td><a [routerLink]="['/sistema/pagos/edit', pago.id]" class="btn btn-info">Editar Pago</a></td>
                                 <td><a class="btn btn-danger" (click)="deletePago(pago.id)">Eliminar Pago</a></td>
                             </tr>

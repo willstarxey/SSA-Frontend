@@ -1,5 +1,6 @@
-<div class="row bg-rojo">
-    <img src="assets/abril.png" alt="Calendario Abril 2019" style="width: 100%;">
+<div class="row d-flex justify-content-center mb-4">
+    <pre>Month: {{ model.month }}.{{ model.day }}.{{ model.year }}</pre>
+    <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
 </div>
 <div class="row bg-rojo p-3">
     <div class="col-12 align-items-center justify-content-start">

@@ -24,7 +24,7 @@
                                 <td>{{aviso.id}}</td>
                                 <td>{{aviso.titulo}}</td>
                                 <td>{{aviso.descripcion}}</td>
-                                <td>{{aviso.created_at}}</td>
+                                <td>{{aviso.created_at.toString().slice(8, 10)}}-{{aviso.created_at.toString().slice(5, 7)}}-{{aviso.created_at.toString().slice(0, 4)}}</td>
                                 <td><a [routerLink]="['/sistema/avisos/edit', aviso.id]" class="btn btn-info">Editar</a></td>
                                 <td><a class="btn btn-danger" (click)="deleteAviso(aviso.id)">Eliminar</a></td>
                             </tr>

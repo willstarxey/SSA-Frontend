@@ -27,6 +27,7 @@ import { FestividadesService } from './services/festividades.service';
 import { PagosService } from './services/pagos.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+
 import { IndexComponent } from './components/users/index/index.component';
 import { NavbarSystemComponent } from './components/navbar-system/navbar-system.component';
 import { FormUserComponent } from './components/users/form-user/form-user.component';
@@ -43,6 +44,8 @@ import { AuthService } from './services/auth.service';
 import { UserSystemComponent } from './components/user-system/user-system.component';
 import { IndexPersonalComponent } from './components/personal/index-personal/index-personal.component';
 import { FormPersonalComponent } from './components/personal/form-personal/form-personal.component';
+import { DatepickerComponent } from './components/datepicker/datepicker.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -74,14 +77,16 @@ import { FormPersonalComponent } from './components/personal/form-personal/form-
     FormFestividadesComponent,
     UserSystemComponent,
     IndexPersonalComponent,
-    FormPersonalComponent
+    FormPersonalComponent,
+    DatepickerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgbModule
   ],
   providers: [
     UsersService,

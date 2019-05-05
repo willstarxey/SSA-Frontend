@@ -11,6 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class IndexFestividadesComponent implements OnInit {
 
   festividades: Festividad|any = [];
+  fecha: any;
 
   constructor( private festividadesService: FestividadesService, private spinnerService: NgxSpinnerService ) { }
 
